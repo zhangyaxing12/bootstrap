@@ -13,7 +13,6 @@ markup:
     startLevel:         2
     endLevel:           6
 
-relativeURLs: true
 buildDrafts:            true
 buildFuture:            true
 
