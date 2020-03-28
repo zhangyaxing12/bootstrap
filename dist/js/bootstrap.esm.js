@@ -1,5 +1,5 @@
 /*!
-  * Bootstrap v4.3.1 (https://getbootstrap.com/)
+  * Bootstrap v5.0.0-alpha1 (https://getbootstrap.com/)
   * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
@@ -78,7 +78,7 @@ function _inheritsLoose(subClass, superClass) {
 
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v4.3.1): util/index.js
+ * Bootstrap (v5.0.0-alpha1): util/index.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -253,7 +253,7 @@ var getjQuery = function getjQuery() {
 
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v4.3.1): dom/data.js
+ * Bootstrap (v5.0.0-alpha1): dom/data.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -392,7 +392,7 @@ if (!supportScopeQuery) {
 
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v4.3.1): dom/event-handler.js
+ * Bootstrap (v5.0.0-alpha1): dom/event-handler.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -685,7 +685,7 @@ var EventHandler = {
 
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v4.3.1): dom/selector-engine.js
+ * Bootstrap (v5.0.0-alpha1): dom/selector-engine.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -777,7 +777,7 @@ var SelectorEngine = {
  */
 
 var NAME = 'alert';
-var VERSION = '4.3.1';
+var VERSION = '5.0.0-alpha1';
 var DATA_KEY = 'bs.alert';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
@@ -943,7 +943,7 @@ if ($$1) {
  */
 
 var NAME$1 = 'button';
-var VERSION$1 = '4.3.1';
+var VERSION$1 = '5.0.0-alpha1';
 var DATA_KEY$1 = 'bs.button';
 var EVENT_KEY$1 = "." + DATA_KEY$1;
 var DATA_API_KEY$1 = '.data-api';
@@ -1110,7 +1110,7 @@ if ($$2) {
 
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v4.3.1): dom/manipulator.js
+ * Bootstrap (v5.0.0-alpha1): dom/manipulator.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -1195,7 +1195,7 @@ var Manipulator = {
  */
 
 var NAME$2 = 'carousel';
-var VERSION$2 = '4.3.1';
+var VERSION$2 = '5.0.0-alpha1';
 var DATA_KEY$2 = 'bs.carousel';
 var EVENT_KEY$2 = "." + DATA_KEY$2;
 var DATA_API_KEY$2 = '.data-api';
@@ -1279,7 +1279,7 @@ var Carousel = /*#__PURE__*/function () {
     this._element = element;
     this._indicatorsElement = SelectorEngine.findOne(SELECTOR_INDICATORS, this._element);
     this._touchSupported = 'ontouchstart' in document.documentElement || navigator.maxTouchPoints > 0;
-    this._pointerEvent = Boolean(window.PointerEvent || window.MSPointerEvent);
+    this._pointerEvent = Boolean(window.PointerEvent);
 
     this._addEventListeners();
 
@@ -1642,12 +1642,9 @@ var Carousel = /*#__PURE__*/function () {
 
       var transitionDuration = getTransitionDurationFromElement(activeElement);
       EventHandler.one(activeElement, TRANSITION_END, function () {
-        nextElement.classList.remove(directionalClassName);
-        nextElement.classList.remove(orderClassName);
+        nextElement.classList.remove(directionalClassName, orderClassName);
         nextElement.classList.add(CLASS_NAME_ACTIVE$1);
-        activeElement.classList.remove(CLASS_NAME_ACTIVE$1);
-        activeElement.classList.remove(orderClassName);
-        activeElement.classList.remove(directionalClassName);
+        activeElement.classList.remove(CLASS_NAME_ACTIVE$1, orderClassName, directionalClassName);
         _this4._isSliding = false;
         setTimeout(function () {
           EventHandler.trigger(_this4._element, EVENT_SLID, {
@@ -1797,7 +1794,7 @@ if ($$3) {
  */
 
 var NAME$3 = 'collapse';
-var VERSION$3 = '4.3.1';
+var VERSION$3 = '5.0.0-alpha1';
 var DATA_KEY$3 = 'bs.collapse';
 var EVENT_KEY$3 = "." + DATA_KEY$3;
 var DATA_API_KEY$3 = '.data-api';
@@ -1950,9 +1947,7 @@ var Collapse = /*#__PURE__*/function () {
     var complete = function complete() {
       _this._element.classList.remove(CLASS_NAME_COLLAPSING);
 
-      _this._element.classList.add(CLASS_NAME_COLLAPSE);
-
-      _this._element.classList.add(CLASS_NAME_SHOW);
+      _this._element.classList.add(CLASS_NAME_COLLAPSE, CLASS_NAME_SHOW);
 
       _this._element.style[dimension] = '';
 
@@ -1989,9 +1984,7 @@ var Collapse = /*#__PURE__*/function () {
 
     this._element.classList.add(CLASS_NAME_COLLAPSING);
 
-    this._element.classList.remove(CLASS_NAME_COLLAPSE);
-
-    this._element.classList.remove(CLASS_NAME_SHOW);
+    this._element.classList.remove(CLASS_NAME_COLLAPSE, CLASS_NAME_SHOW);
 
     var triggerArrayLength = this._triggerArray.length;
 
@@ -2204,7 +2197,7 @@ if ($$4) {
  */
 
 var NAME$4 = 'dropdown';
-var VERSION$4 = '4.3.1';
+var VERSION$4 = '5.0.0-alpha1';
 var DATA_KEY$4 = 'bs.dropdown';
 var EVENT_KEY$4 = "." + DATA_KEY$4;
 var DATA_API_KEY$4 = '.data-api';
@@ -2713,7 +2706,7 @@ if ($$5) {
  */
 
 var NAME$5 = 'modal';
-var VERSION$5 = '4.3.1';
+var VERSION$5 = '5.0.0-alpha1';
 var DATA_KEY$5 = 'bs.modal';
 var EVENT_KEY$5 = "." + DATA_KEY$5;
 var DATA_API_KEY$5 = '.data-api';
@@ -2743,7 +2736,6 @@ var EVENT_KEYDOWN_DISMISS = "keydown.dismiss" + EVENT_KEY$5;
 var EVENT_MOUSEUP_DISMISS = "mouseup.dismiss" + EVENT_KEY$5;
 var EVENT_MOUSEDOWN_DISMISS = "mousedown.dismiss" + EVENT_KEY$5;
 var EVENT_CLICK_DATA_API$5 = "click" + EVENT_KEY$5 + DATA_API_KEY$5;
-var CLASS_NAME_SCROLLABLE = 'modal-dialog-scrollable';
 var CLASS_NAME_SCROLLBAR_MEASURER = 'modal-scrollbar-measure';
 var CLASS_NAME_BACKDROP = 'modal-backdrop';
 var CLASS_NAME_OPEN = 'modal-open';
@@ -2930,10 +2922,10 @@ var Modal = /*#__PURE__*/function () {
 
     this._element.setAttribute('aria-modal', true);
 
-    if (this._dialog.classList.contains(CLASS_NAME_SCROLLABLE) && modalBody) {
+    this._element.scrollTop = 0;
+
+    if (modalBody) {
       modalBody.scrollTop = 0;
-    } else {
-      this._element.scrollTop = 0;
     }
 
     if (transition) {
@@ -3321,7 +3313,7 @@ if ($$6) {
 
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v4.3.1): util/sanitizer.js
+ * Bootstrap (v5.0.0-alpha1): util/sanitizer.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -3453,7 +3445,7 @@ function sanitizeHtml(unsafeHtml, whiteList, sanitizeFn) {
  */
 
 var NAME$6 = 'tooltip';
-var VERSION$6 = '4.3.1';
+var VERSION$6 = '5.0.0-alpha1';
 var DATA_KEY$6 = 'bs.tooltip';
 var EVENT_KEY$6 = "." + DATA_KEY$6;
 var CLASS_PREFIX = 'bs-tooltip';
@@ -3780,8 +3772,7 @@ var Tooltip = /*#__PURE__*/function () {
   _proto.setContent = function setContent() {
     var tip = this.getTipElement();
     this.setElementContent(SelectorEngine.findOne(SELECTOR_TOOLTIP_INNER, tip), this.getTitle());
-    tip.classList.remove(CLASS_NAME_FADE$1);
-    tip.classList.remove(CLASS_NAME_SHOW$3);
+    tip.classList.remove(CLASS_NAME_FADE$1, CLASS_NAME_SHOW$3);
   };
 
   _proto.setElementContent = function setElementContent(element, content) {
@@ -3801,7 +3792,7 @@ var Tooltip = /*#__PURE__*/function () {
           element.appendChild(content);
         }
       } else {
-        element.innerText = content.textContent;
+        element.textContent = content.textContent;
       }
 
       return;
@@ -3814,7 +3805,7 @@ var Tooltip = /*#__PURE__*/function () {
 
       element.innerHTML = content;
     } else {
-      element.innerText = content;
+      element.textContent = content;
     }
   };
 
@@ -4204,7 +4195,7 @@ if ($$7) {
  */
 
 var NAME$7 = 'popover';
-var VERSION$7 = '4.3.1';
+var VERSION$7 = '5.0.0-alpha1';
 var DATA_KEY$7 = 'bs.popover';
 var EVENT_KEY$7 = "." + DATA_KEY$7;
 var CLASS_PREFIX$1 = 'bs-popover';
@@ -4269,8 +4260,7 @@ var Popover = /*#__PURE__*/function (_Tooltip) {
     }
 
     this.setElementContent(SelectorEngine.findOne(SELECTOR_CONTENT, tip), content);
-    tip.classList.remove(CLASS_NAME_FADE$2);
-    tip.classList.remove(CLASS_NAME_SHOW$4);
+    tip.classList.remove(CLASS_NAME_FADE$2, CLASS_NAME_SHOW$4);
   };
 
   _proto._addAttachmentClass = function _addAttachmentClass(attachment) {
@@ -4393,7 +4383,7 @@ if ($$8) {
  */
 
 var NAME$8 = 'scrollspy';
-var VERSION$8 = '4.3.1';
+var VERSION$8 = '5.0.0-alpha1';
 var DATA_KEY$8 = 'bs.scrollspy';
 var EVENT_KEY$8 = "." + DATA_KEY$8;
 var DATA_API_KEY$6 = '.data-api';
@@ -4698,7 +4688,7 @@ if ($$9) {
  */
 
 var NAME$9 = 'tab';
-var VERSION$9 = '4.3.1';
+var VERSION$9 = '5.0.0-alpha1';
 var DATA_KEY$9 = 'bs.tab';
 var EVENT_KEY$9 = "." + DATA_KEY$9;
 var DATA_API_KEY$7 = '.data-api';
@@ -4924,7 +4914,7 @@ if ($$a) {
  */
 
 var NAME$a = 'toast';
-var VERSION$a = '4.3.1';
+var VERSION$a = '5.0.0-alpha1';
 var DATA_KEY$a = 'bs.toast';
 var EVENT_KEY$a = "." + DATA_KEY$a;
 var EVENT_CLICK_DISMISS$1 = "click.dismiss" + EVENT_KEY$a;

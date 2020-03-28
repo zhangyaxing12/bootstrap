@@ -1,5 +1,5 @@
 /*!
-  * Bootstrap modal.js v4.3.1 (https://getbootstrap.com/)
+  * Bootstrap modal.js v5.0.0-alpha1 (https://getbootstrap.com/)
   * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
@@ -81,7 +81,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.3.1): util/index.js
+   * Bootstrap (v5.0.0-alpha1): util/index.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -209,7 +209,7 @@
    */
 
   var NAME = 'modal';
-  var VERSION = '4.3.1';
+  var VERSION = '5.0.0-alpha1';
   var DATA_KEY = 'bs.modal';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
@@ -239,7 +239,6 @@
   var EVENT_MOUSEUP_DISMISS = "mouseup.dismiss" + EVENT_KEY;
   var EVENT_MOUSEDOWN_DISMISS = "mousedown.dismiss" + EVENT_KEY;
   var EVENT_CLICK_DATA_API = "click" + EVENT_KEY + DATA_API_KEY;
-  var CLASS_NAME_SCROLLABLE = 'modal-dialog-scrollable';
   var CLASS_NAME_SCROLLBAR_MEASURER = 'modal-scrollbar-measure';
   var CLASS_NAME_BACKDROP = 'modal-backdrop';
   var CLASS_NAME_OPEN = 'modal-open';
@@ -426,10 +425,10 @@
 
       this._element.setAttribute('aria-modal', true);
 
-      if (this._dialog.classList.contains(CLASS_NAME_SCROLLABLE) && modalBody) {
+      this._element.scrollTop = 0;
+
+      if (modalBody) {
         modalBody.scrollTop = 0;
-      } else {
-        this._element.scrollTop = 0;
       }
 
       if (transition) {

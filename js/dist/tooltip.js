@@ -1,5 +1,5 @@
 /*!
-  * Bootstrap tooltip.js v4.3.1 (https://getbootstrap.com/)
+  * Bootstrap tooltip.js v5.0.0-alpha1 (https://getbootstrap.com/)
   * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
@@ -82,7 +82,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.3.1): util/index.js
+   * Bootstrap (v5.0.0-alpha1): util/index.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -213,7 +213,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.3.1): util/sanitizer.js
+   * Bootstrap (v5.0.0-alpha1): util/sanitizer.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -345,7 +345,7 @@
    */
 
   var NAME = 'tooltip';
-  var VERSION = '4.3.1';
+  var VERSION = '5.0.0-alpha1';
   var DATA_KEY = 'bs.tooltip';
   var EVENT_KEY = "." + DATA_KEY;
   var CLASS_PREFIX = 'bs-tooltip';
@@ -672,8 +672,7 @@
     _proto.setContent = function setContent() {
       var tip = this.getTipElement();
       this.setElementContent(SelectorEngine.findOne(SELECTOR_TOOLTIP_INNER, tip), this.getTitle());
-      tip.classList.remove(CLASS_NAME_FADE);
-      tip.classList.remove(CLASS_NAME_SHOW);
+      tip.classList.remove(CLASS_NAME_FADE, CLASS_NAME_SHOW);
     };
 
     _proto.setElementContent = function setElementContent(element, content) {
@@ -693,7 +692,7 @@
             element.appendChild(content);
           }
         } else {
-          element.innerText = content.textContent;
+          element.textContent = content.textContent;
         }
 
         return;
@@ -706,7 +705,7 @@
 
         element.innerHTML = content;
       } else {
-        element.innerText = content;
+        element.textContent = content;
       }
     };
 
