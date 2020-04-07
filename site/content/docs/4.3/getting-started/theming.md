@@ -294,12 +294,18 @@ Sass cannot programmatically generate variables, so we must manually create them
 
 Our `tint-color()` and `shade-color()` functions use `mix()` alongside our `$theme-color-interval` variable, which specifies a stepped percentage value for each mixed color we need. See the `scss/_functions.scss` and `scss/_variables.scss` files for the full source code.
 
+{{< callout info >}}
+#### Monitoring contrast ratios
+
+Each theme color's swatch visually displays its current contrast ratio, as well as its contrast ratio against both white and black.
+{{< /callout >}}
+
 <div class="row">
   {{< theme-colors.inline >}}
   {{- range $color := $.Site.Data.colors }}
     {{- if (and (not (eq $color.name "white")) (not (eq $color.name "gray")) (not (eq $color.name "gray-dark"))) }}
     <div class="col-md-4 mb-3 font-monospace">
-      <div class="p-3 mb-2 swatch-{{ $color.name }}">
+      <div class="p-3 mb-2 position-relative swatch-{{ $color.name }}">
         <strong class="d-block">${{ $color.name }}</strong>
         {{ $color.hex }}
       </div>
